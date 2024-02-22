@@ -1,6 +1,6 @@
 name: "Publish Issue to Nostr"
 branding:
-  icon: send 
+  icon: send
   color: purple
 description: "Publish details about a GitHub issue to Nostr"
 inputs:
@@ -27,9 +27,13 @@ inputs:
   relays:
     description: Relay URLs `wss://...` (separated by `,`) stringified JSON list
     required: true
-outputs:
-  event:
-    description: The published issue event
 runs:
-  using: "node20"
-  main: "./run.sh"
+  using: "composite"
+  steps:
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: "21"
+    - name: Run JavaScript function
+      run: node --experimental-websocket dist/index.js
+      shell: bash
