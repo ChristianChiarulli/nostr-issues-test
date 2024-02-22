@@ -43,7 +43,7 @@ runs:
 
       env:
         GITHUB_TOKEN: ${{ inputs.token }}
-        repo: ${{ inputs.repo }}
+        REPO: ${{ inputs.repo }}
         ISSUE_NUMBER: ${{ inputs.issue_number }}
         NSEC: ${{ inputs.nsec }}
         KIND: ${{ inputs.kind }}

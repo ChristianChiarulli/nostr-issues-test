@@ -85,18 +85,19 @@ async function publishIssueToNostr() {
       import_core.default.setFailed("token input is required");
       return;
     }
-    const repo = import_core.default.getInput("repo").split("/");
+    let repo = process.env.REPO || import_core.default.getInput("repo");
+    repo = repo.split("/");
     if (repo.length !== 2 || !repo[0] || !repo[1]) {
       import_core.default.setFailed("repo input is invalid");
       return;
     }
-    let issueNumber = import_core.default.getInput("issue_number");
+    let issueNumber = process.env.ISSUE_NUMBER || import_core.default.getInput("issue_number");
     if (!issueNumber || isNaN(parseInt(issueNumber))) {
       import_core.default.setFailed("issue_number input is required");
       return;
     }
     issueNumber = parseInt(issueNumber);
-    let nsec = import_core.default.getInput("nsec");
+    let nsec = process.env.NSEC || import_core.default.getInput("nsec");
     if (!nsec) {
       import_core.default.setFailed("nsec input is required");
       return;
@@ -107,7 +108,7 @@ async function publishIssueToNostr() {
       return;
     }
     let sk = decodeResult.data;
-    let kind = import_core.default.getInput("kind");
+    let kind = process.env.KIND || import_core.default.getInput("kind");
     if (!kind || isNaN(parseInt(kind))) {
       import_core.default.setFailed("kind input is required");
       return;
@@ -115,7 +116,7 @@ async function publishIssueToNostr() {
     kind = parseInt(kind);
     let tags;
     try {
-      tags = import_core.default.getInput("tags");
+      tags = process.env.TAGS || import_core.default.getInput("tags");
       tags = JSON.parse(tags);
     } catch (error) {
       import_core.default.setFailed("tags input is invalid");
@@ -123,7 +124,7 @@ async function publishIssueToNostr() {
     }
     let relays;
     try {
-      relays = import_core.default.getInput("relays");
+      relays = process.env.RELAYS || import_core.default.getInput("relays");
       relays = JSON.parse(relays);
     } catch (error) {
       import_core.default.setFailed("relays input is invalid");
