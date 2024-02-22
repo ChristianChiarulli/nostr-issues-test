@@ -1,4 +1,7 @@
 name: "Publish Issue to Nostr"
+branding:
+  icon: send 
+  color: purple
 description: "Publish details about a GitHub issue to Nostr"
 inputs:
   token:
