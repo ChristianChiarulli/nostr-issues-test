@@ -1,0 +1,32 @@
+name: "Publish Issue to Nostr"
+description: "Publish details about a GitHub issue to Nostr"
+inputs:
+  token:
+    description: "GitHub token for authentication"
+    required: true
+  repo:
+    description: 'Repository name in the format "owner/repo"'
+    required: true
+  issue_number:
+    description: "Issue number to log details for"
+    required: true
+  nsec:
+    description: Private key nsec format
+    required: true
+  kind:
+    description: Kind
+    required: false
+    default: "1"
+  tags:
+    description: Tags stringified JSON list
+    required: false
+    default: "[]"
+  relays:
+    description: Relay URLs `wss://...` (separated by `,`) stringified JSON list
+    required: true
+outputs:
+  event:
+    description: The published issue event
+runs:
+  using: "node20"
+  main: "./run.sh"

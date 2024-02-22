@@ -1,2 +1,2 @@
-# nostr-issues-test
-publish github issues to nostr
+# nostr-issues
+A GitHub workflow action for managing issues

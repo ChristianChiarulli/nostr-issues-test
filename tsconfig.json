@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    /* Language and Environment */
+    "target": "ESNext",
+    /* Modules */
+    "module": "ESNext",
+    "resolveJsonModule": true,
+    "rootDir": ".",
+    "moduleDetection": "force",
+    "isolatedModules": true,
+    "importHelpers": true,
+    "moduleResolution": "Bundler",
+    /* JavaScript Support */
+    "allowJs": true,
+    "checkJs": true,
+    /* Emit */
+    "noEmit": true,
+    "verbatimModuleSyntax": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    /* Type Checking */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    /* Completeness */
+    "skipLibCheck": true
+  },
+  "include": [".eslintrc.cjs", "**/*.ts", "**/*.js", "**/*.cjs"],
+  "exclude": ["node_modules", "dist", "tests/**/*"]
+}
