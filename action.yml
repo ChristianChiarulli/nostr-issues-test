@@ -35,5 +35,5 @@ runs:
       with:
         node-version: "21"
     - name: Run JavaScript function
-      run: node --experimental-websocket dist/index.js
+      run: node --experimental-websocket ${{ github.action_path }}/dist/index.js
       shell: bash
