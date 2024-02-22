@@ -86,7 +86,7 @@ async function publishIssueToNostr() {
   // TODO: clean up input validation
 
   try {
-    const token = core.getInput("token");
+    const token = process.env.GITHUB_TOKEN || core.getInput("token");
     if (!token) {
       core.setFailed("token input is required");
       return;

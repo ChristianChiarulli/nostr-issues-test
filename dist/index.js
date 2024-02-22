@@ -56,7 +56,7 @@ async function getIssue(token, owner, repo, issueNumber) {
 }
 async function publishIssueToNostr() {
   try {
-    const token = core.getInput("token");
+    const token = process.env.GITHUB_TOKEN || core.getInput("token");
     if (!token) {
       core.setFailed("token input is required");
       return;

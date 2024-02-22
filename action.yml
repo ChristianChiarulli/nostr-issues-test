@@ -42,7 +42,7 @@ runs:
       shell: bash
 
       env:
-        token: ${{ inputs.token }}
+        GITHUB_TOKEN: ${{ inputs.token }}
         repo: ${{ inputs.repo }}
         ISSUE_NUMBER: ${{ inputs.issue_number }}
         NSEC: ${{ inputs.nsec }}

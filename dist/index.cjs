@@ -80,7 +80,7 @@ async function getIssue(token, owner, repo, issueNumber) {
 }
 async function publishIssueToNostr() {
   try {
-    const token = import_core.default.getInput("token");
+    const token = process.env.GITHUB_TOKEN || import_core.default.getInput("token");
     if (!token) {
       import_core.default.setFailed("token input is required");
       return;
