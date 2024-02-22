@@ -99,7 +99,8 @@ async function publishIssueToNostr() {
       return;
     }
 
-    let issueNumber: string | number = process.env.ISSUE_NUMBER || core.getInput("issue_number");
+    let issueNumber: string | number =
+      process.env.ISSUE_NUMBER || core.getInput("issue_number");
     if (!issueNumber || isNaN(parseInt(issueNumber))) {
       core.setFailed("issue_number input is required");
       return;
@@ -154,7 +155,9 @@ async function publishIssueToNostr() {
 
     const issue = await getIssue(token, repo[0], repo[1], issueNumber);
 
-    console.log(`Issue: ${issue}`);
+    tags = tags.concat(issue.tags);
+
+    console.log("tags: ", tags);
 
     let eventTemplate = {
       kind: kind,

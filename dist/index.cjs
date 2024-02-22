@@ -135,7 +135,8 @@ async function publishIssueToNostr() {
       return;
     }
     const issue = await getIssue(token, repo[0], repo[1], issueNumber);
-    console.log(`Issue: ${issue}`);
+    tags = tags.concat(issue.tags);
+    console.log("tags: ", tags);
     let eventTemplate = {
       kind,
       created_at: Math.floor(Date.now() / 1e3),
