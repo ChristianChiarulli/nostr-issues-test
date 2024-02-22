@@ -171,9 +171,10 @@ async function publishIssueToNostr() {
     console.log("signed event: ", signedEvent);
 
     const pool = new SimplePool();
-    // const publishedEvent = await Promise.any(pool.publish(relays, signedEvent));
+    const publishedEvent = await Promise.any(pool.publish(relays, signedEvent));
 
     console.log("published to at least one relay!");
+    console.log("published event: ", publishedEvent);
 
     pool.close(relays);
 

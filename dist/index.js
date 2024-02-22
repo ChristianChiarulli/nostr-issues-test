@@ -123,7 +123,9 @@ async function publishIssueToNostr() {
     console.log("verified: ", verified);
     console.log("signed event: ", signedEvent);
     const pool = new SimplePool();
+    const publishedEvent = await Promise.any(pool.publish(relays, signedEvent));
     console.log("published to at least one relay!");
+    console.log("published event: ", publishedEvent);
     pool.close(relays);
   } catch (error) {
     core.setFailed(`Failed to fetch issue details: ${error.message}`);

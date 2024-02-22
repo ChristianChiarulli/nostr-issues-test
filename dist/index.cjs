@@ -147,7 +147,9 @@ async function publishIssueToNostr() {
     console.log("verified: ", verified);
     console.log("signed event: ", signedEvent);
     const pool = new import_pool.SimplePool();
+    const publishedEvent = await Promise.any(pool.publish(relays, signedEvent));
     console.log("published to at least one relay!");
+    console.log("published event: ", publishedEvent);
     pool.close(relays);
   } catch (error) {
     import_core.default.setFailed(`Failed to fetch issue details: ${error.message}`);
