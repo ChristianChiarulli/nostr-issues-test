@@ -40,3 +40,13 @@ runs:
     - name: Run JavaScript function
       run: node --experimental-websocket ${{ github.action_path }}/dist/index.js
       shell: bash
+
+      env:
+        token: ${{ inputs.token }}
+        repo: ${{ inputs.repo }}
+        ISSUE_NUMBER: ${{ inputs.issue_number }}
+        NSEC: ${{ inputs.nsec }}
+        KIND: ${{ inputs.kind }}
+        TAGS: ${{ inputs.tags }}
+        RELAYS: ${{ inputs.relays }}
+         
