@@ -31,11 +31,11 @@ runs:
   using: "composite"
   steps:
     - name: Setup Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
         node-version: "21"
     - name: Install dependencies
-      run: npm install
+      run: cd ${{ github.action_path }} && npm install
       shell: bash
     - name: Run JavaScript function
       run: node --experimental-websocket ${{ github.action_path }}/dist/index.js
